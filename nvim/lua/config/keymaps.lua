@@ -4,4 +4,9 @@
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
+-- Add zz to center screen
+keymap.set("n", "<C-d>", "<C-d>zz", opts)
+keymap.set("n", "<C-u>", "<C-u>zz", opts)
+
+-- Add jk to escape insert mode
 keymap.set("i", "jk", "<Esc>", opts)
