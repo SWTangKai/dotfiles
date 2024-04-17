@@ -1,0 +1,9 @@
+# Modified Commands
+alias df='df -h'
+alias du='du -h -c'
+alias mkdir='mkdir -pv'
+
+#alias vim=lvim
+alias vim=nvim
+alias ta="tmux a -t Env"
+alias tn="tmux new -s (pwd | sed 's/.*\///g')"

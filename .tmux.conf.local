@@ -295,9 +295,13 @@ tmux_conf_theme_window_status_last_attr='none'
 # tmux_conf_theme_left_separator_sub='|'
 # tmux_conf_theme_right_separator_main=''
 # tmux_conf_theme_right_separator_sub='|'
-tmux_conf_theme_left_separator_main='\uE0B0'  # /!\ you don't need to install Powerline
+# tmux_conf_theme_left_separator_main='\uE0B0'  # /!\ you don't need to install Powerline
+# tmux_conf_theme_left_separator_sub='\uE0B1'   #   you only need fonts patched with
+# tmux_conf_theme_right_separator_main='\uE0B2' #   Powerline symbols or the standalone
+# tmux_conf_theme_right_separator_sub='\uE0B3'  #   PowerlineSymbols.otf font, see README.md
+tmux_conf_theme_left_separator_main=''  # /!\ you don't need to install Powerline
 tmux_conf_theme_left_separator_sub='\uE0B1'   #   you only need fonts patched with
-tmux_conf_theme_right_separator_main='\uE0B2' #   Powerline symbols or the standalone
+tmux_conf_theme_right_separator_main='' #   Powerline symbols or the standalone
 tmux_conf_theme_right_separator_sub='\uE0B3'  #   PowerlineSymbols.otf font, see README.md
 
 # status left/right content:
@@ -422,40 +426,69 @@ tmux_conf_copy_to_os_clipboard=true
 # this is the place to override or undo settings
 
 # increase history size
-#set -g history-limit 10000
+set -g history-limit 100000
 
 # start with mouse mode enabled
 set -g mouse on
 
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
-#set -g status-keys vi
-#set -g mode-keys vi
+# set -g status-keys vi
+# set -g mode-keys vi
 
 # replace C-b by C-a instead of using both prefixes
-set -gu prefix2
-unbind C-a
+# set -gu prefix2
+# unbind C-a
 # unbind C-b
 # set -g prefix C-a
 # bind C-a send-prefix
 
 # move status line to top
-#set -g status-position top
+set -g status-position top
+# set -g status-position bottom
+# set -g @catppuccin_window_left_separator ""
+# set -g @catppuccin_window_right_separator " "
+# set -g @catppuccin_window_middle_separator " █"
+# set -g @catppuccin_window_number_position "right"
+# set -g @catppuccin_window_default_fill "number"
+# set -g @catppuccin_window_default_text "#W"
+# set -g @catppuccin_window_current_fill "number"
+# set -g @catppuccin_window_current_text "#W#{?window_zoomed_flag,(),}"
+# set -g @catppuccin_status_modules_right "directory meetings date_time"
+# set -g @catppuccin_status_modules_left "session"
+# set -g @catppuccin_status_left_separator  " "
+# set -g @catppuccin_status_right_separator " "
+# set -g @catppuccin_status_right_separator_inverse "no"
+# set -g @catppuccin_status_fill "icon"
+# set -g @catppuccin_status_connect_separator "no"
+# set -g @catppuccin_directory_text "#{b:pane_current_path}"
+# set -g @catppuccin_meetings_text "#($HOME/.config/tmux/scripts/cal.sh)"
+# set -g @catppuccin_date_time_text "%H:%M"
 
 
 # List of plugins
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-yank'
+
 
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 # tmux-resurrect
 set -g @resurrect-save-bash-history 'on'
 set -g @resurrect-capture-pane-contents 'on'
 set -g @resurrect-strategy-vim 'session'
-# set -g @resurrect-save 'S'
-# set -g @resurrect-restore 'R'
+set -g @resurrect-strategy-nvim 'session'
+#set -g @resurrect-save 'S'
+#set -g @resurrect-restore 'R'
+
+set -g @plugin 'tmux-plugins/tmux-continuum'
+
 
 # Other examples:
+set -g @plugin 'omerxx/tmux-sessionx'
+set -g @sessionx-bind 'o'
+
+
 # set -g @plugin 'github_username/plugin_name'
 # set -g @plugin 'git@github.com/user/plugin'
 # set -g @plugin 'git@bitbucket.com/user/plugin'
