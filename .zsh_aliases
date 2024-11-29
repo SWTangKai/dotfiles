@@ -1,3 +1,5 @@
+alias c=clear
+
 # Modified Commands
 alias df='df -h'
 alias du='du -h -c'
