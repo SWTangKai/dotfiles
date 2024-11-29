@@ -11,5 +11,5 @@ keymap.set("n", "<C-u>", "<C-u>zz", opts)
 -- Add jk to escape insert mode
 keymap.set("i", "jk", "<Esc>", opts)
 
-keymap.set("n", "<leader>cc", require("osc52").copy_operator, { expr = true })
-keymap.set("v", "<leader>cc", require("osc52").copy_visual)
+-- keymap.set("n", "<leader>cc", require("osc52").copy_operator, { expr = true })
+-- keymap.set("v", "<leader>cc", require("osc52").copy_visual)
