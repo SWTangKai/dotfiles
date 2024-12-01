@@ -37,6 +37,8 @@ zinit from"gh-r" as"program" mv"direnv* -> direnv" \
     atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' \
     pick"direnv" src="zhook.zsh" for \
         direnv/direnv
+
+zinit load atuinsh/atuin
 #
 
 # Add in snippets
@@ -87,6 +89,7 @@ if [[ ! "$PATH" == *$HOME/.fzf/bin* ]]; then
   PATH="${PATH:+${PATH}:}$HOME/.fzf/bin"
 fi
 PATH="${PATH}:${HOME}/.local/share/bob/nvim-bin"
+PATH="${PATH}:${HOME}/.local/bin"
 
 # Aliases
 alias ls='ls --color'
@@ -99,5 +102,6 @@ alias laz="lazygit"
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+
 
 
