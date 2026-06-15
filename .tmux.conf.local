@@ -336,7 +336,7 @@ tmux_conf_theme_status_right='  %R | #{username}#{root}| #{hostname}'
 # status left style
 tmux_conf_theme_status_left_fg=$nord5 # '#e4e4e4,#e4e4e4,#e4e4e4'  # black, white , white
 tmux_conf_theme_status_left_bg=$nord0 #',#00afff'  # yellow, pink, white blue
-ttmux_conf_theme_status_left_attr='bold,none,none'
+tmux_conf_theme_status_left_attr='bold,none,none'
 
 # status right style
 tmux_conf_theme_status_right_fg=$nord5,$nord4,$nord4
@@ -425,11 +425,8 @@ tmux_conf_copy_to_os_clipboard=true
 # -- user customizations -------------------------------------------------------
 # this is the place to override or undo settings
 
-# increase history size
-set -g history-limit 100000
-
-# start with mouse mode enabled
-set -g mouse on
+# This file provides Nord theme overrides only.
+# Plugins and core settings are configured in .tmux.conf.
 
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
@@ -443,55 +440,4 @@ set -g mouse on
 # set -g prefix C-a
 # bind C-a send-prefix
 
-# move status line to top
-set -g status-position top
-# set -g status-position bottom
-# set -g @catppuccin_window_left_separator ""
-# set -g @catppuccin_window_right_separator " "
-# set -g @catppuccin_window_middle_separator " █"
-# set -g @catppuccin_window_number_position "right"
-# set -g @catppuccin_window_default_fill "number"
-# set -g @catppuccin_window_default_text "#W"
-# set -g @catppuccin_window_current_fill "number"
-# set -g @catppuccin_window_current_text "#W#{?window_zoomed_flag,(),}"
-# set -g @catppuccin_status_modules_right "directory meetings date_time"
-# set -g @catppuccin_status_modules_left "session"
-# set -g @catppuccin_status_left_separator  " "
-# set -g @catppuccin_status_right_separator " "
-# set -g @catppuccin_status_right_separator_inverse "no"
-# set -g @catppuccin_status_fill "icon"
-# set -g @catppuccin_status_connect_separator "no"
-# set -g @catppuccin_directory_text "#{b:pane_current_path}"
-# set -g @catppuccin_meetings_text "#($HOME/.config/tmux/scripts/cal.sh)"
-# set -g @catppuccin_date_time_text "%H:%M"
-
-
-# List of plugins
-set -g @plugin 'tmux-plugins/tpm'
-set -g @plugin 'tmux-plugins/tmux-sensible'
-set -g @plugin 'tmux-plugins/tmux-yank'
-
-
-set -g @plugin 'tmux-plugins/tmux-resurrect'
-# tmux-resurrect
-set -g @resurrect-save-bash-history 'on'
-set -g @resurrect-capture-pane-contents 'on'
-set -g @resurrect-strategy-vim 'session'
-set -g @resurrect-strategy-nvim 'session'
-#set -g @resurrect-save 'S'
-#set -g @resurrect-restore 'R'
-
-set -g @plugin 'tmux-plugins/tmux-continuum'
-
-
-# Other examples:
-set -g @plugin 'omerxx/tmux-sessionx'
-set -g @sessionx-bind 'o'
-
-
-# set -g @plugin 'github_username/plugin_name'
-# set -g @plugin 'git@github.com/user/plugin'
-# set -g @plugin 'git@bitbucket.com/user/plugin'
-
-# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
-run '~/.tmux/plugins/tpm/tpm'
+# (remaining settings and plugin list moved to .tmux.conf)

@@ -48,36 +48,26 @@ zinit light atuinsh/atuin
 # Add in snippets
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
-zinit snippet OMZP::command-not-found
-zinit snippet OMZP::cp
-zinit snippet OMZP::aliases
 zinit snippet OMZP::extract
 
 # Load completions
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -C
 
 zinit cdreplay -q
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Keybindings
-bindkey -e
-bindkey '^k' history-search-backward
-bindkey '^j' history-search-forward
-bindkey '^[w' kill-region
 
 # History
 HISTSIZE=500000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
-setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_space
 setopt hist_ignore_all_dups
 setopt hist_save_no_dups
-setopt hist_ignore_dups
 setopt hist_find_no_dups
 
 # Completion styling
@@ -103,8 +93,22 @@ alias c='clear'
 alias cat='bat'
 alias laz="lazygit"
 
+source ~/.zsh_aliases
+
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
 source ~/.zsh_env
+# eval "$(devbox global shellenv)"
+
+# opencode
+export PATH="$HOME/.opencode/bin:$PATH"
+
+# clashctl START
+# 加载 clashctl 命令
+. "$HOME/clashctl/scripts/cmd/clashctl.sh"
+# 自动开启代理环境
+watch_proxy
+# # clashctl END
+# source ~/.clawdock/clawdock-helpers.sh
